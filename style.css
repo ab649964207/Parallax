@@ -1,0 +1,230 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #wrap {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .main {
+            position: relative;
+            width: 100%;
+            top: 0;
+            transition: all 1s;
+        }
+        
+        .main.state2 {
+            top: -100vh;
+        }
+        
+        .main.state3 {
+            top: -200vh;
+        }
+        
+        .main.state4 {
+            top: -300vh;
+        }
+        
+        .page {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .page img {
+            position: absolute;
+            width: 100%;
+            transition: all 1.5s;
+        }
+        
+        .page h1 {
+            transition: all 1s;
+            font-size: 25vh;
+            position: absolute;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: sans-serif;
+        }
+        
+        .page:nth-child(1) h1 {
+            margin-left: -800px;
+            filter: drop-shadow(16px 0 50px rgba(255, 255, 255, 0.8));
+            background-image: -webkit-linear-gradient(90deg, rgb(20, 79, 128), #ffffff);
+            margin-top: -20px;
+            left: 30%;
+            top: 80%;
+        }
+        
+        .main.state1 h1 {
+            top: 42%;
+            left: 30%;
+        }
+        
+        .main.state1 .page:nth-child(1) img {
+            top: 0;
+        }
+        
+        .page:nth-child(1) .a1 {
+            top: -200px;
+        }
+        
+        .page:nth-child(1) .a2 {
+            top: -150px;
+        }
+        
+        .page:nth-child(1) .a3 {
+            top: -100px;
+        }
+        /* 设置第二页的动画效果 */
+        
+        .page:nth-child(2) h1 {
+            filter: drop-shadow(16px 0 50px rgba(70, 70, 70, 0.8));
+            background-image: -webkit-linear-gradient(90deg, rgb(161, 206, 243), #ffffff);
+            top: 40%;
+            left: 30%;
+            margin-left: -100px;
+            margin-top: -20px;
+        }
+        
+        .page:nth-child(2) img {
+            width: 125%;
+            height: 100vh;
+        }
+        
+        .page:nth-child(2) .b1 {
+            left: -5%;
+            scale: 1.2;
+        }
+        
+        .page:nth-child(2) .b2 {
+            left: -10%;
+            scale: 0.8;
+        }
+        
+        .page:nth-child(2) .b3 {
+            left: -15%;
+            scale: 0.8;
+        }
+        
+        .page:nth-child(2) .b4 {
+            left: -20%;
+            /* scale: 0.8; */
+        }
+        
+        .main.state2 h1 {
+            top: 22%;
+            left: 50%;
+        }
+        
+        .main.state2 .page:nth-child(2) img {
+            top: 0;
+            left: 0;
+            scale: 1.0;
+        }
+        /* 第三页动画 */
+        
+        .page:nth-child(3) h1 {
+            transition: all 2s;
+            filter: drop-shadow(16px 0 50px rgba(27, 27, 27, 0.5));
+            background-image: -webkit-linear-gradient(270deg, rgb(255, 255, 255), #ffffff);
+            top: 100%;
+            left: 30%;
+            font-size: 20vh;
+            margin-left: -100px;
+            margin-top: -20px;
+            scale: 0.1;
+        }
+        
+        .main.state3 h1 {
+            top: 45%;
+            left: 40%;
+            scale: 1.0;
+        }
+        
+        .main.state3 .page:nth-child(3) img {
+            scale: 1.0;
+        }
+        
+        .main.state3 .c1 {
+            scale: 1.0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .main.state3 .c2 {
+            scale: 1.0;
+            top: 0;
+        }
+        
+        .c1 {
+            bottom: 10%;
+            scale: 3;
+            left: 10%;
+        }
+        
+        .c2 {
+            scale: 5;
+            top: 190%;
+        }
+        /* 第四页动画 */
+        
+        .page:nth-child(4) h1 {
+            transition: all 2s;
+            filter: drop-shadow(16px 0 50px rgba(201, 40, 0, 0.103));
+            background-image: -webkit-linear-gradient(270deg, rgb(255, 255, 255), #ffffff);
+            top: 100%;
+            left: 70%;
+            font-size: 20vh;
+            margin-left: -100px;
+            margin-top: -20px;
+            scale: 0.1;
+        }
+        
+        .main.state4 h1 {
+            top: 25%;
+            left: 50%;
+            scale: 1.0;
+        }
+        
+        .main.state4 .d1 {
+            top: 5%;
+            /* left: 20%; */
+            scale: 1.0;
+            rotate: -10deg;
+        }
+        
+        .main.state4 .d2 {
+            scale: 1.5;
+            top: 20%;
+            left: 5%;
+        }
+        
+        .main.state4 .d3 {
+            rotate: 10deg;
+            scale: 1.5;
+            top: 0;
+        }
+        
+        .d1 {
+            top: 0;
+            rotate: 0;
+        }
+        
+        .d2 {
+            scale: 1.0;
+            top: 0;
+            left: 0;
+        }
+        
+        .d3 {
+            top: 0;
+            rotate: 0;
+            scale: 1.0;
+        }

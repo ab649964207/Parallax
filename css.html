@@ -5,142 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        #wrap {
-            width: 100%;
-
-            overflow: hidden;
-            position: relative;
-        }
-
-        .main {
-            position: relative;
-            width: 100%;
-
-            top: 0;
-        }
-
-        /* .main.state1 {
-            top: 0vh;
-        }
-
-        .main.state2 {
-            top: -100vh;
-        }
-
-        .main.state3 {
-            top: -200vh;
-        }
-
-        .main.state4 {
-            top: -300vh;
-        }
-
-        .main.state5 {
-            top: -400vh;
-        } */
-
-        .page {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            height: 100vh;
-        }
-
-        #page1 {
-            background-color: #333;
-            height: 100vh;
-        }
-
-        #page2 {
-            background-color: #222;
-            height: 100vh;
-        }
-
-        .page img{
-            position: absolute;
-            width: 100%;
-            transition: all 1.5s;
-            top: 0;
-        }
-
-        .page h1 {
-            transition: all 1s;
-            /* font-family: HarmonyOS Sans SC; */
-
-            font-size: 25vh;
-
-            position: absolute;
-            background-image: -webkit-linear-gradient(90deg, rgb(20, 79, 128), #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* -webkit-animation: hue 6s infinite linear; */
-            top: 42%;
-            left: 50%;
-            margin-left: -800px;
-            margin-top: -20px;
-            filter: drop-shadow(16px 0 50px rgba(255, 255, 255, 0.8));
-
-        }
-
-        .offset h1{
-            top: 60%;
-        }
-
-        .offset .a1{
-            top: -300px;
-        }
-        .offset .a2{
-            top: -150px;
-        }
-        .offset .a3{
-            top: -100px;
-        }
     </style>
     <title>Document</title>
 </head>
 
-<body>
+<body scroll="no">
 
 
     <div id="wrap" class="wrap">
         <div class="main" id="main">
-            <div id="page1" class="page offset">
-
-
-                <img class="a3" src="./img/3.png" alt="图片3">
-                <img class="a2" src="./img/2.png" alt="图片2">
+            <div id="page1" class="page">
+                <img class="a3" src="./img/111/3.png" alt="图片3">
+                <img class="a2" src="./img/111/2.png" alt="图片2">
                 <h1 class="title">DESERT</h1>
-
-                <img class="a1" src="./img/1.png" alt="图片1">
-
-
-
-
+                <img class="a1" src="./img/111/1.png" alt="图片1">
             </div>
             <div id="page2" class="page">
+                <img class="b1" src="./img/222/1.png" alt="图片1">
+                <img class="b2" src="./img/222/2.png" alt="图片2">
+                <h1>DREAM</h1>
 
-                <img src="./img/1.png" alt="图片1">
-                <img src="./img/2.png" alt="图片2">
 
-                <img src="./img/3.png" alt="图片3">
-                <h1>DESERT</h1>
+                <img class="b3" src="./img/222/3.png" alt="图片3">
+                <img class="b4" src="./img/222/4.png" alt="图片4">
+
+
+
             </div>
             <div id="page3" class="page">
+                <img class="c2" src="./img/333/4.jpg" alt="图片4">
+                <h1>EARTH</h1>
+
+                <img class="c1" src="./img/333/2.png" alt="图片3">
+
 
             </div>
             <div id="page4" class="page">
+                <img class="d3" src="./img/444/3.png" alt="图片3">
+                <h1>AUTUMN</h1>
 
+                <img class="d1" src="./img/444/1.png" alt="图片4">
+                <img class="d2" src="./img/444/2.png" alt="图片3">
             </div>
-            <div id="page5" class="page">
 
-            </div>
         </div>
 
 
@@ -150,25 +60,91 @@
 
 </body>
 <script>
+    // window.addEventListener('mousemove', (e) => {
+    //     let h1 = document.querySelectorAll('h1')
+    //     h1.forEach(h1 => {
+    //         console.log(h1)
+    //         let top = 42 + (e.pageY - 500) / 150
+    //         let left = 50 + (e.pageX - 300) / 300
+    //         h1.style.top = `${top}%`
+    //         h1.style.left = `${left}%`
+    //     })
+    // })
+    main = document.getElementById('main')
+    let pageindex = 1;
+    let maxPage = 4;
+    let animating = false;
+    window.onload = function() {
+        main = document.getElementById('main')
+        main.className = `main state1`
+    }
+    window.addEventListener('keydown', (e) => {
 
-    window.addEventListener('mousemove', (e) => {
-        let h1 = document.querySelectorAll('.main .page h1')
-        h1.forEach(h1 => {
-            console.log(h1)
-            let top = 42 + (e.pageY - 500) / 150
-            let left = 50 + (e.pageX - 300) / 300
+        if (e.keyCode === 40) {
+            e.preventDefault()
+            if (pageindex < 4) {
+                goToNextPage()
+            }
 
-
-            h1.style.top = `${top}%`
-            h1.style.left = `${left}%`
-        })
+        } else if (e.keyCode === 38) {
+            e.preventDefault()
+            if (pageindex > 1) {
+                goToPrePage()
+            }
+        }
     })
-    window.onload = function () {
-        page1 = document.getElementById('page1')
-        page1.classList.remove('offset')
 
+
+    document.addEventListener('wheel', (e) => {
+        // console.log(e.wheelDeltaY)
+        // console.log(pageindex)
+        e.wheelDeltaY > 0 ? goToPrePage() : goToNextPage()
+    })
+
+
+    function goToNextPage() {
+        return new Promise(
+            (resolve, reject) => {
+                if (animating) {
+                    reject()
+                } else if (pageindex < 1) {
+                    reject()
+                } else if (pageindex >= maxPage) {
+                    reject()
+                } else {
+                    pageindex++
+                    animating = true
+                    setTimeout(() => {
+                        animating = false
+                    }, 1000);
+                    main.className = `main state${pageindex}`
+                    resolve();
+                }
+            }
+        )
     }
 
+    function goToPrePage() {
+        return new Promise(
+            (resolve, reject) => {
+                if (animating) {
+                    reject()
+                } else if (pageindex <= 1) {
+                    reject()
+                } else if (pageindex > maxPage) {
+                    reject()
+                } else {
+                    pageindex--
+                    animating = true
+                    setTimeout(() => {
+                        animating = false
+                    }, 1000);
+                    main.className = `main state${pageindex}`
+                    resolve();
+                }
+            }
+        )
+    }
 </script>
 
 </html>
